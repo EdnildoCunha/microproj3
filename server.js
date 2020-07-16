@@ -40,9 +40,9 @@ app.get("/carrinho",(req,res) => {
     res.send(JSON.stringify(carrinho));
 });
 //Adiciona lanche ao carrinho
-app.post("carrinho/cadastrar", function(req, res) {
+app.post("/carrinho/cadastrar", function(req, res) {
     const index = req.body;
-    carrinho.push(menu[index]);
+    carrinho.push(menu[index.indice]);
     console.log(carrinho);
     res.send("Adicionado ao carrinho!");
 });
