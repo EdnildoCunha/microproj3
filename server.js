@@ -4,7 +4,7 @@ const app = express();
 
 const porta = process.env.PORT || 2000;
 
-var cardapio = [];
+var menu = [];
 var carrinho = [];
 
 app.use(express.json());
@@ -13,26 +13,26 @@ app.use(express.urlencoded({extended: true}));
 //consulta menu com posição
 app.get("/menu/:pos",(req,res) => {
     const posicao = req.params.pos;
-    res.send(JSON.stringify(cardapio[posicao]));
+    res.send(JSON.stringify(menu[posicao]));
 });
 
 //consulta menu completo
 app.get("/menu",(req,res) => {
-    res.send(JSON.stringify(cardapio));
+    res.send(JSON.stringify(menu));
 });
 
 //cadastra lanche
 app.post("/lanche", (req,res) => {
     const lanche = req.body;
-    cardapio.push(lanche);
+    menu.push(lanche);
     console.log(req.body);
     res.send("Item adicionado!");
 });
 //exclusão de lanche
 app.post("/menu/excluir", function(req, res) {
     const index = req.body;
-    cardapio.splice(index.indice, 1)
-    console.log(cardapio);
+    menu.splice(index.indice, 1)
+    console.log(menu);
     res.send("Item Excluído!");
 });
 //Lista de lanches no carrinho a serem comprados
@@ -42,7 +42,7 @@ app.get("/carrinho",(req,res) => {
 //Adiciona lanche ao carrinho
 app.post("/selecionalanche", function(req, res) {
     const index = req.body;
-    carrinho.push(cardapio[index.indice]);
+    carrinho.push(menu[index.indice]);
     console.log(carrinho);
     res.send("Adicionado ao carrinho!");
 });
@@ -50,7 +50,7 @@ app.post("/selecionalanche", function(req, res) {
 app.post("/carrinho/excluir", function(req, res) {
     const index = req.body;
     carrinho.splice(index.indice, 1)
-    console.log(cardapio);
+    console.log(carrinho);
     res.send("Item Excluído!");
 });
 //Cadastro de endereço
