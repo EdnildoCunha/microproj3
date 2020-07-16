@@ -1,0 +1,22 @@
+{
+  "name": "microproj2",
+  "version": "1.0.0",
+  "description": "Implementação de serviço RESTful - microprojeto 2 restaurante",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/EdnildoCunha/microproj3.git)"
+  },
+  "author": "Ednildo Cunha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
