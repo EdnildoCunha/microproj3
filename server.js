@@ -22,10 +22,10 @@ app.get("/menu",(req,res) => {
 });
 
 //cadastra lanche
-app.post("/lanche", (req,res) => {
+app.post("/menu/cadastrar", (req,res) => {
     const lanche = req.body;
     menu.push(lanche);
-    console.log(req.body);
+    console.log(lanche);
     res.send("Item adicionado!");
 });
 //exclusão de lanche
@@ -40,7 +40,7 @@ app.get("/carrinho",(req,res) => {
     res.send(JSON.stringify(carrinho));
 });
 //Adiciona lanche ao carrinho
-app.post("/selecionalanche", function(req, res) {
+app.post("carrinho/cadastrar", function(req, res) {
     const index = req.body;
     carrinho.push(menu[index.indice]);
     console.log(carrinho);
