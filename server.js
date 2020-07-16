@@ -42,7 +42,7 @@ app.get("/carrinho",(req,res) => {
 //Adiciona lanche ao carrinho
 app.post("carrinho/cadastrar", function(req, res) {
     const index = req.body;
-    carrinho.push(menu[index.indice]);
+    carrinho.push(menu[index]);
     console.log(carrinho);
     res.send("Adicionado ao carrinho!");
 });
