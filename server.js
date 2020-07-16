@@ -7,17 +7,20 @@ const porta = process.env.PORT || 2000;
 var cardapio = [];
 var carrinho = [];
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 //consulta menu com posição
 app.get("/menu/:pos",(req,res) => {
     const posicao = req.params.pos;
     res.send(JSON.stringify(cardapio[posicao]));
 });
+
 //consulta menu completo
 app.get("/menu",(req,res) => {
     res.send(JSON.stringify(cardapio));
 });
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+
 //cadastra lanche
 app.post("/lanche", (req,res) => {
     const lanche = req.body;
