@@ -57,8 +57,8 @@ app.post("/carrinho/excluir", function(req, res) {
 app.post("/compra/endereco", function(req, res) {
     const endereco = req.body;
     carrinho.push(endereco);
-    console.log(JSON.stringify(endereço) + "--- Foi cadastrado!");
-    res.send("ENDEREÇO CADASTRADO!");
+    console.log(endereço + "--- Foi cadastrado!");
+    res.send("Endereço Cadastrado!");
 });
 //Compra
 app.get("/compra", function(req, res) {
